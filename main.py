@@ -20,24 +20,24 @@ def multi_sort(arr, cmp, method="None"):
 
 # must be in-place sort
 def merge_sort(arr,cmp):
-    pass
+    mid = len(arr) // 2
+    left = arr[:mid]
+    right = arr[mid:]
+    left = merge_sort(left, cmp)
+    right = merge_sort(right, cmp)
 
+    # sort
+    output = []
+    while left and right:
+        if cmp(left[0], right[0]) > 0:
+            output.append(right.pop(0))
+        else:
+            output.append(left.pop(0))
+    if left:
+        output = output.extend(left)
+    if right:
+        output = output.extend(right)
 # must be in-place sort
 def quick_sort(arr,cmp):
-    if len(arr) <= 1:
-        return arr
-    pvt = arr[np.random.randint(len(arr))]
-    arrSmall = []
-    arrMid = []
-    arrLarge = []
-    for e in arr :
-        if (cmp(pvt,e) > 0):
-            arrSmall.append(e)
-        elif (cmp(pvt,e) < 0):
-            arrLarge.append(e)
-        else:
-            arrMid.append(e)
-    arrSmall = quick_sort(arrSmall,cmp)
-    arrLarge = quick_sort(arrLarge,cmp)
-    arr = arrSmall + arrMid + arrLarge
-    return arr
+    
+    pass
