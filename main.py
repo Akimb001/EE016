@@ -3,6 +3,8 @@
 #          cmp(a,b)<0   if a should be placed before b,
 #          cmp(a,b)==0  if arr is still sorted after a and b are exchanged,
 #          cmp(a,b)>0   if a should be placed behind b.
+import numpy as np
+
 def multi_sort(arr, cmp, method="None"):
     if(method=="quick"):
         quick_sort(arr,cmp)
@@ -39,4 +41,3 @@ def quick_sort(arr,cmp):
     arrLarge = quick_sort(arrLarge,cmp)
     arr = arrSmall + arrMid + arrLarge
     return arr
-    pass
